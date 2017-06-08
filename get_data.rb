@@ -96,7 +96,7 @@ orgs.each do |org|
       end
     end
   end
-  threshold_in_days = 30
+  threshold_in_days = options[:threshold_days].to_i || 30
   stale_nodes = []
   nodes[0].each do |n|
     if (Time.now.to_i - n['ohai_time'].to_i) >= threshold_in_days * 86400
